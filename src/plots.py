@@ -10,7 +10,14 @@ def generate_all_visualizations(results: dict[str, pd.DataFrame], output_dir: Pa
 
     # Revenue by Category
     plt.figure(figsize=(10, 5))
-    sns.barplot(data=results["revenue_by_category"], x="category", y="total_revenue", palette="viridis")
+    sns.barplot(
+        data=results["revenue_by_category"],
+        x="category",
+        y="total_revenue",
+        hue="category",
+        legend=False,
+        palette="viridis",
+    )
     plt.title("Revenue Mix Across Clinical Treatment Modalities")
     plt.xticks(rotation=30, ha='right')
     plt.tight_layout()
